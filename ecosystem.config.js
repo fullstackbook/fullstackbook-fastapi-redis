@@ -7,7 +7,7 @@ module.exports = {
     production: {
       key: 'key.pem',
       user: 'ubuntu',
-      host: '35.90.174.83',
+      host: '35.88.119.168',
       ref: 'origin/main',
       repo: 'git@github.com:travisluong/fullstackbook-fastapi-redis.git',
       path: '/home/ubuntu',
