@@ -1,9 +1,10 @@
 import requests
 import redis
 import json
+import os
 from fastapi import FastAPI
 
-rd = redis.Redis(host="localhost", port=6379, db=0)
+rd = redis.Redis(host=os.getenv("REDIS_HOST", "localhost"), port=6379, db=0)
 
 app = FastAPI()
 
@@ -13,6 +14,7 @@ def read_root():
 
 @app.get("/fish/{species}")
 def read_fish(species: str):
+  print(os.getenv("REDIS_HOST"))
   cache = rd.get(species)
   if cache:
     print("cache hit")
